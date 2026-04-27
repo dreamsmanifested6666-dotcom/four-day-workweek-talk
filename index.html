@@ -257,6 +257,71 @@ html, body {
   letter-spacing: -0.005em;
 }
 
+/* Cover — three-tier flex layout for title + contributors + venue */
+.cover-stage {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 0;
+}
+.cover-stage .cover-top    { flex: 0 0 auto; }
+.cover-stage .cover-mid    { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center; }
+.cover-stage .cover-bottom { flex: 0 0 auto; }
+.cover-credit-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+.speakers-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 2rem;
+  row-gap: 0.55rem;
+  max-width: 78ch;
+  align-items: baseline;
+  border-top: 1px solid var(--rule-strong);
+  border-bottom: 1px solid var(--rule);
+  padding: 1.2rem 0;
+  margin-bottom: 1.4rem;
+}
+.speakers-list .name {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+  line-height: 1.3;
+}
+.speakers-list .id {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.cover-venue {
+  margin-top: 0;
+}
+
+/* Inline citation tag at the bottom of data slides */
+.cite {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 400;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin-top: 2.4rem;
+  display: block;
+  max-width: 70ch;
+  line-height: 1.45;
+}
+.deep .cite { color: rgba(244, 239, 230, 0.5); }
+
 /* Compare slides — "60 hours / 6 days" stacks */
 .compare-stack {
   font-family: 'Source Serif 4', Georgia, serif;
@@ -1424,6 +1489,13 @@ body.deep-active .slide-meta { color: rgba(244, 239, 230, 0.4); }
 
   /* Slide meta */
   .slide-meta { right: 0.9rem; top: 0.7rem; font-size: 0.55rem; }
+
+  /* Cover speakers list — keep two-column even on phones, smaller type */
+  .speakers-list { font-size: 0.85rem; column-gap: 1rem; row-gap: 0.4rem; padding: 0.8rem 0; }
+  .speakers-list .name { font-size: 0.85rem; }
+  .speakers-list .id   { font-size: 0.7rem; }
+  .cover-credit-eyebrow { font-size: 0.6rem; margin-bottom: 0.7rem; }
+  .cite { font-size: 0.65rem; margin-top: 1.4rem; }
 }
 
 /* Phones — even tighter */
@@ -1476,13 +1548,25 @@ body.deep-active .slide-meta { color: rgba(244, 239, 230, 0.4); }
 
     <!-- 1.1 Cover -->
     <section data-section="speaker-1">
-      <div class="center-v" style="height:100%; gap:0;">
-        <div class="eyebrow">TED-STYLE TALK · APRIL 2026 · 15 MINUTES</div>
-        <h1 class="cover-title" style="margin-top:3rem;">The 4-Day Workweek.</h1>
-        <div class="cover-sub">A history of one hypothesis.</div>
-      </div>
-      <div class="slide-bottom">
-        <div class="source">Chulalongkorn University · Six speakers · April 28, 2026</div>
+      <div class="cover-stage">
+        <div class="cover-top">
+          <div class="eyebrow">TED-STYLE TALK · APRIL 2026 · 15 MINUTES</div>
+        </div>
+        <div class="cover-mid">
+          <h1 class="cover-title">The 4-Day Workweek.</h1>
+          <div class="cover-sub">A history of one hypothesis.</div>
+        </div>
+        <div class="cover-bottom">
+          <div class="cover-credit-eyebrow">Presented by</div>
+          <div class="speakers-list">
+            <span class="name">Nathon Chittratanawat</span><span class="id">6838025638</span>
+            <span class="name">Enio Alban Midha</span><span class="id">6838080038</span>
+            <span class="name">Kritphat Panataveep</span><span class="id">6838009638</span>
+            <span class="name">Thaninthorn Sivaipram Anand-Frank Caules Thawnorasingh</span><span class="id">6838073738</span>
+            <span class="name">Kunawach Kunanantakul</span><span class="id">6838010138</span>
+          </div>
+          <div class="source cover-venue">Chulalongkorn University · Social/Organizational Psychology · April 28, 2026</div>
+        </div>
       </div>
       <aside class="notes">
         Speakers walk on. Brief pause. Speaker 1 opens cold — no filler. Hold this slide for ~5 seconds before advancing to "Sixty hours."
@@ -1549,6 +1633,7 @@ body.deep-active .slide-meta { color: rgba(244, 239, 230, 0.4); }
         <div class="flsa-body">
           Roosevelt's Fair Labor Standards Act enshrined the forty-hour week into U.S. law. The five-day week we treat as eternal is, in fact, almost exactly one hundred years old.
           <div class="caption" style="margin-top:1.6rem;">A business decision. Made by one man. Based on a hypothesis.</div>
+          <div class="cite">Source · Fair Labor Standards Act of 1938, 29 U.S.C. § 201 et seq. · Ford Motor Company archives, Detroit (5-day week introduced Sept. 25, 1926).</div>
         </div>
       </div>
       <aside class="notes">
@@ -1814,6 +1899,7 @@ body.deep-active .slide-meta { color: rgba(244, 239, 230, 0.4); }
           </li>
         </ul>
         <div class="caption" style="margin-top:3rem;">Productivity held. Or it improved. Workers reported less stress, less burnout, more time with family.</div>
+        <div class="cite">Source · Haraldsson & Kellam, <em>Going Public: Iceland's journey to a shorter working week</em>, Autonomy + Alda, 2021.</div>
       </div>
       <aside class="notes">
         Child Protection Services kept the same number of active cases. A government call centre answered ninety-three percent of incoming calls — versus eighty-five percent at a comparable workplace that didn't change. The Reykjavík Department of Accountancy entered six and a half percent more invoices than before. Productivity held. Or it improved. Workers reported less stress, less burnout, more time with family. Men in heterosexual relationships took on more housework.
@@ -1832,6 +1918,7 @@ body.deep-active .slide-meta { color: rgba(244, 239, 230, 0.4); }
             of Iceland's workforce either works shorter hours, or has the contractual right to ask for them.
           </div>
           <div class="caption" style="margin-top:2.5rem;">Iceland didn't pass a law. They ran an experiment, published the results, and let workers and unions do the rest.</div>
+          <div class="cite">Source · Icelandic Confederation of Labour (ASÍ) collective-bargaining data, 2022.</div>
         </div>
       </div>
       <aside class="notes">
@@ -1892,6 +1979,7 @@ body.deep-active .slide-meta { color: rgba(244, 239, 230, 0.4); }
         <div class="data" style="margin-top:3.5rem; color:var(--muted); font-size:1.1rem;">
           Of 61 companies: <strong style="color:var(--ink);">56 chose to continue. 18 made it permanent on the spot.</strong>
         </div>
+        <div class="cite">Source · Schor, Fan, Frayne &amp; Burchell, <em>The UK Four-Day Week Pilot: Final Results Report</em>, 4 Day Week Global / Autonomy / Boston College / Cambridge, Feb 2023.</div>
       </div>
       <aside class="notes">
         The headline numbers when the report came out: seventy-one percent of employees reported less burnout. Sick days fell sixty-five percent. Staff turnover dropped fifty-seven percent compared with the year before. Revenue at the twenty-three companies that shared financials rose by an average of one point four percent. Of the sixty-one companies, fifty-six chose to continue. Eighteen made it permanent on the spot.
@@ -1913,6 +2001,7 @@ body.deep-active .slide-meta { color: rgba(244, 239, 230, 0.4); }
           <span><span style="color:var(--ink);">Days per week</span> <span>4</span></span>
           <span><span style="color:var(--ink);">Pay</span> <span>unchanged</span></span>
         </div>
+        <div class="cite">Source · Atom Bank corporate communications, 2022; Trustpilot public ratings, accessed via 4 Day Week Global case study, 2023.</div>
       </div>
       <aside class="notes">
         I want to give you one of those companies in detail. Atom Bank. A digital-only bank based in Durham, England. They actually started before the official pilot — November 2021 — putting everyone on a thirty-four-hour, four-day week.
@@ -1970,6 +2059,7 @@ body.deep-active .slide-meta { color: rgba(244, 239, 230, 0.4); }
         <div class="caption" style="margin-top:3rem; max-width:42ch;">
           Belgium's version is <em style="color:var(--accent); font-style:normal;">compressed</em> hours, not reduced. That distinction matters — and we'll come back to it.
         </div>
+        <div class="cite">Sources · Spanish Ministry of Industry pilot announcement, 2023 · 4 Day Week Iberia &amp; Lisbon Council, 2023 · Belgian Federal Labour Deal of Sept 2022.</div>
       </div>
       <aside class="notes">
         This is not just the UK. Spain ran a government-backed industrial pilot. Portugal ran a six-month trial across forty-one companies — ninety-five percent rated it positively. Only four reverted to a five-day week. Belgium passed a law in 2022 giving every worker the right to request a four-day week — though Belgium's version is compressed hours, not reduced, and that distinction matters.
@@ -1992,6 +2082,7 @@ body.deep-active .slide-meta { color: rgba(244, 239, 230, 0.4); }
           Lower burnout. Better job satisfaction. Better mental and physical health. The control group showed none of those gains.
         </div>
         <div class="source" style="margin-top:2rem;">Roughly 200 UK companies are now permanently on a four-day week. The novelty has worn off. The data hasn't.</div>
+        <div class="cite">Source · Fan, Schor et al., <em>Nature Human Behaviour</em>, July 2025.</div>
       </div>
       <aside class="notes">
         And in July last year, the most important publication yet. Fan and Schor's team in Nature Human Behaviour: 2,896 workers across 141 organisations, six countries, twelve control companies. The four-day week group showed lower burnout, better job satisfaction, better mental and physical health. The control group showed none of those gains.
@@ -2152,6 +2243,7 @@ body.deep-active .slide-meta { color: rgba(244, 239, 230, 0.4); }
         <div class="caption" style="margin-top:2.5rem; max-width:50ch;">
           When you read about a company "going to four days," ask which one. They are not the same intervention.
         </div>
+        <div class="cite">Sources · "Reduced" column: Autonomy/Alda 2021, Schor &amp; Fan 2023, Fan et al. 2025. · "Compressed" column: Belgian Federal Labour Deal 2022, Art. 2 §1.</div>
       </div>
       <aside class="notes">
         [This table is the visual punchline of the caveats section. It is the one chart the deck contains because the eye sees the difference instantly.]
