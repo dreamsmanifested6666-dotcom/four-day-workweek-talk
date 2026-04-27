@@ -1,0 +1,2640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 4-Day Workweek — TED-style talk · April 2026</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.5/dist/reveal.css">
+
+<style>
+/* ─────────────────────────────────────────────────────────────
+   1. PALETTE
+   ───────────────────────────────────────────────────────────── */
+:root {
+  --bg-warm:  #F4EFE6;
+  --bg-deep:  #14110F;
+  --ink:      #1A1A1A;
+  --muted:    #6B6B6B;
+  --accent:   #C84630;
+  --accent-2: #D4A24C;
+  --rule:     rgba(26, 26, 26, 0.08);
+  --rule-strong: rgba(26, 26, 26, 0.18);
+  --cream:    #F4EFE6;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   2. RESET / BASE
+   ───────────────────────────────────────────────────────────── */
+html, body {
+  background: var(--bg-warm);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.reveal {
+  background: var(--bg-warm);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+  font-size: 36px;
+}
+
+.reveal .slides {
+  text-align: left;
+}
+
+.reveal-viewport {
+  background: var(--bg-warm) !important;
+}
+
+/* Slide container — override reveal's default centering */
+.reveal .slides > section,
+.reveal .slides > section > section {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: center !important;
+  text-align: left;
+  padding: 5.5rem 7rem;
+  height: 100%;
+  box-sizing: border-box;
+  background: var(--bg-warm);
+  color: var(--ink);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* Deep slides — the four flips */
+.reveal .slides section.deep {
+  background: var(--bg-deep);
+  color: var(--cream);
+}
+
+.reveal .slides section.deep * {
+  color: inherit;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   3. TYPE SCALE
+   ───────────────────────────────────────────────────────────── */
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4 {
+  font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.05;
+  margin: 0;
+  color: inherit;
+}
+
+.eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.deep .eyebrow {
+  color: rgba(244, 239, 230, 0.55);
+}
+
+.hero-number {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 600;
+  font-size: 14rem;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  color: var(--ink);
+  font-variant-numeric: lining-nums;
+}
+
+.deep .hero-number { color: var(--cream); }
+
+.hero-number--medium {
+  font-size: 9rem;
+}
+
+.hero-number--small {
+  font-size: 6rem;
+}
+
+.section-title {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 500;
+  font-size: 6rem;
+  letter-spacing: -0.025em;
+  line-height: 1;
+}
+
+.body-callout {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 400;
+  font-size: 2.4rem;
+  max-width: 24ch;
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+}
+
+.body-callout--wide {
+  max-width: 32ch;
+}
+
+.caption {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.deep .caption { color: rgba(244, 239, 230, 0.65); }
+
+.label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.data {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-weight: 500;
+  font-size: 1.4rem;
+  letter-spacing: 0;
+}
+
+.data--small {
+  font-size: 1.05rem;
+}
+
+.source {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+
+.deep .source { color: rgba(244, 239, 230, 0.5); }
+
+/* ─────────────────────────────────────────────────────────────
+   4. LAYOUT PRIMITIVES
+   ───────────────────────────────────────────────────────────── */
+.stack > * + * { margin-top: 1.2rem; }
+.stack--lg > * + * { margin-top: 2rem; }
+.stack--xl > * + * { margin-top: 3rem; }
+.stack--xxl > * + * { margin-top: 4.5rem; }
+
+.center-h { display: flex; justify-content: center; }
+.center-v { display: flex; flex-direction: column; justify-content: center; }
+.center-both { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.text-center { text-align: center; }
+
+.rule {
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: var(--rule-strong);
+  margin: 0;
+}
+
+.deep .rule { background: rgba(244, 239, 230, 0.25); }
+
+.muted { color: var(--muted); }
+.accent { color: var(--accent); }
+.gold { color: var(--accent-2); }
+
+/* Bottom-anchored content */
+.slide-bottom {
+  position: absolute;
+  left: 7rem;
+  right: 7rem;
+  bottom: 5rem;
+}
+
+/* Top-anchored eyebrow */
+.slide-top {
+  position: absolute;
+  left: 7rem;
+  right: 7rem;
+  top: 5rem;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   5. SLIDE-SPECIFIC
+   ───────────────────────────────────────────────────────────── */
+
+/* Cover */
+.cover-title {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 500;
+  font-size: 7.5rem;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+.cover-sub {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-style: italic;
+  font-size: 2rem;
+  color: var(--muted);
+  margin-top: 2.5rem;
+  letter-spacing: -0.005em;
+}
+
+/* Compare slides — "60 hours / 6 days" stacks */
+.compare-stack {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 500;
+  font-size: 7rem;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.compare-stack > div + div { margin-top: 1.4rem; }
+.compare-stack .secondary { color: var(--muted); }
+
+/* "It isn't." — held silence */
+.held-line {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 500;
+  font-size: 6.5rem;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+/* 1926 reveal */
+.reveal1926 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+}
+.reveal1926 .eyebrow {
+  margin-bottom: 4rem;
+}
+.reveal1926 .hero-number {
+  display: block;
+}
+
+/* $438B counter */
+.counter-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+.counter-eyebrow { margin-bottom: 2.5rem; }
+#counter-438b {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 600;
+  font-size: 9rem;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--cream);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.counter-caption {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-style: italic;
+  font-size: 2rem;
+  color: var(--accent-2);
+  margin-top: 2rem;
+  letter-spacing: -0.005em;
+}
+.counter-source {
+  margin-top: 4rem;
+  color: rgba(244, 239, 230, 0.55);
+}
+
+/* "Measuring time / measuring work" deep slide */
+.measuring {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 400;
+  font-size: 4.4rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-align: center;
+  max-width: 22ch;
+  margin: 0 auto;
+}
+.measuring .second-line { color: var(--cream); }
+.measuring .first-line { color: rgba(244, 239, 230, 0.5); }
+
+/* Iceland map */
+.iceland-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.iceland-svg {
+  width: min(60vw, 80%);
+  max-width: 1200px;
+  height: auto;
+  display: block;
+}
+.iceland-outline {
+  fill: none;
+  stroke: var(--rule-strong);
+  stroke-width: 1.2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.reykjavik-dot {
+  fill: var(--accent);
+  opacity: 0;
+}
+.reykjavik-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  fill: var(--muted);
+  opacity: 0;
+}
+.iceland-caption-wrap {
+  position: absolute;
+  bottom: 4rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  opacity: 0;
+}
+.iceland-caption {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-style: italic;
+  font-size: 1.6rem;
+  color: var(--muted);
+}
+
+/* Iceland eyebrow positioning */
+.iceland-eyebrow {
+  position: absolute;
+  top: 5rem;
+  left: 7rem;
+}
+
+/* "It didn't." */
+.it-didnt {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 500;
+  font-size: 9rem;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  color: var(--cream);
+}
+
+/* Iceland data points */
+.data-point-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  max-width: 60ch;
+}
+.data-point {
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  align-items: baseline;
+  gap: 2rem;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid var(--rule);
+}
+.data-point:last-child { border-bottom: none; }
+.data-point .figure {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: var(--ink);
+}
+.data-point .label-text {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1.4rem;
+  color: var(--ink);
+  line-height: 1.4;
+  font-style: italic;
+}
+.data-point .label-text strong {
+  font-style: normal;
+  font-weight: 500;
+}
+
+/* 100-80-100 */
+.formula {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 500;
+  font-size: 8rem;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.formula .em-dash {
+  color: var(--muted);
+  margin: 0 0.4rem;
+  font-weight: 400;
+}
+
+/* Four-stat grid */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: 4rem;
+}
+.stat-cell {
+  padding: 2.5rem 1.8rem;
+  border-right: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+}
+.stat-cell:last-child { border-right: none; }
+.stat-cell .figure {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 600;
+  font-size: 5.5rem;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--ink);
+  margin-bottom: 1.4rem;
+}
+.stat-cell .figure.positive { color: var(--ink); }
+.stat-cell .figure.gain { color: var(--accent); }
+.stat-cell .label-text {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+/* Atom Bank arrow */
+.atom-stage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  align-items: stretch;
+}
+.atom-row {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 4rem;
+}
+.atom-figure {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 600;
+  font-size: 11rem;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.atom-figure.before { color: var(--ink); }
+.atom-figure.after { color: var(--accent); text-align: right; }
+.atom-arrow-wrap {
+  position: relative;
+  height: 2px;
+  display: flex;
+  align-items: center;
+}
+.atom-arrow-line {
+  width: 100%;
+  height: 1.5px;
+  background: var(--ink);
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+.atom-arrow-tip {
+  position: absolute;
+  right: -2px;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  border-top: 1.5px solid var(--ink);
+  border-right: 1.5px solid var(--ink);
+  transform: translateY(-50%) rotate(45deg);
+  opacity: 0;
+}
+.atom-caption-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+}
+
+/* Reduced ≠ Compressed table */
+.compare-table {
+  width: 100%;
+  max-width: 80ch;
+  margin: 3rem 0 0 0;
+  border-collapse: collapse;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+.compare-table th,
+.compare-table td {
+  text-align: left;
+  padding: 1.2rem 2rem;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+.compare-table thead th {
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--rule-strong);
+}
+.compare-table tbody th {
+  font-weight: 400;
+  color: var(--muted);
+  width: 22%;
+}
+.compare-table .col-reduced { color: var(--ink); }
+.compare-table .col-compressed { color: var(--muted); }
+
+/* Step slides */
+.step-slide {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 4rem;
+  align-items: center;
+  height: 100%;
+}
+.step-num {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 500;
+  font-size: 14rem;
+  line-height: 1;
+  color: var(--accent);
+  letter-spacing: -0.04em;
+}
+.step-body { display: flex; flex-direction: column; gap: 2rem; }
+.step-title {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 500;
+  font-size: 3.4rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  max-width: 22ch;
+}
+.step-detail {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.45;
+  color: var(--muted);
+  max-width: 36ch;
+}
+
+/* 1926 callback (cinematic 5) — same hero structure as reveal */
+.callback-stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+.callback-stage .eyebrow {
+  margin-bottom: 4rem;
+}
+.callback-line {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 500;
+  font-size: 3.2rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-top: 3rem;
+  max-width: 28ch;
+}
+
+/* Thank you (final deep) */
+.thanks {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 400;
+  font-size: 7rem;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  color: var(--cream);
+  text-align: center;
+}
+
+/* Question to sit with — Speaker 1 [beat] */
+.question-callout {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 400;
+  font-size: 3.2rem;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  max-width: 28ch;
+}
+.question-callout em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+/* Tonight three things — agenda list */
+.agenda-list {
+  list-style: none;
+  padding: 0;
+  margin: 3rem 0 0 0;
+  counter-reset: agenda;
+}
+.agenda-list li {
+  counter-increment: agenda;
+  display: grid;
+  grid-template-columns: 6rem 1fr;
+  gap: 2rem;
+  padding: 1.8rem 0;
+  border-bottom: 1px solid var(--rule);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1.8rem;
+  line-height: 1.4;
+  align-items: baseline;
+  max-width: 62ch;
+}
+.agenda-list li:before {
+  content: counter(agenda, decimal-leading-zero);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+/* Country list — Speaker 1 / 4 */
+.country-list {
+  list-style: none;
+  padding: 0;
+  margin: 3rem 0 0 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem 4rem;
+  max-width: 70ch;
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1.7rem;
+  line-height: 1.4;
+}
+.country-list li {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.country-list .country-name {
+  font-weight: 500;
+}
+.country-list .country-detail {
+  color: var(--muted);
+  font-style: italic;
+  font-size: 1.3rem;
+  margin-left: 0.5rem;
+}
+
+/* Mechanism slides */
+.mechanism-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+.mechanism-title {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 500;
+  font-size: 4rem;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  max-width: 22ch;
+}
+.mechanism-body {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1.7rem;
+  line-height: 1.45;
+  color: var(--ink);
+  max-width: 38ch;
+  margin-top: 2.4rem;
+}
+.mechanism-quote {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  line-height: 1.45;
+  color: var(--muted);
+  max-width: 38ch;
+  margin-top: 2rem;
+  padding-left: 1.5rem;
+  border-left: 1px solid var(--rule-strong);
+}
+.mechanism-cite {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+
+/* Caveat slides */
+.caveat-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: caveat;
+  max-width: 70ch;
+}
+.caveat-list li {
+  counter-increment: caveat;
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: 1.5rem;
+  padding: 1.6rem 0;
+  border-bottom: 1px solid var(--rule);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1.5rem;
+  line-height: 1.45;
+  align-items: baseline;
+}
+.caveat-list li:before {
+  content: counter(caveat);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--accent);
+}
+.caveat-list .caveat-strong {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* Speaker 2 manager engagement */
+.engagement-pair {
+  display: flex;
+  align-items: baseline;
+  gap: 3rem;
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 500;
+  font-size: 9rem;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.engagement-pair .from { color: var(--muted); }
+.engagement-pair .arrow { font-size: 5rem; font-weight: 400; color: var(--muted); position: relative; top: -0.6rem; }
+.engagement-pair .to { color: var(--ink); }
+
+/* Arna intro slide */
+.portrait-block {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 5rem;
+  align-items: center;
+  height: 100%;
+}
+.portrait-name {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 500;
+  font-size: 4.2rem;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+.portrait-role {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--muted);
+  margin-top: 1.2rem;
+  line-height: 1.4;
+}
+.portrait-detail {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1.5rem;
+  color: var(--ink);
+  line-height: 1.5;
+  margin-top: 2.5rem;
+  max-width: 32ch;
+}
+
+/* Did service slip — question slide */
+.question-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+.question-slide .eyebrow { margin-bottom: 3.5rem; }
+.question-large {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 400;
+  font-size: 4.4rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  max-width: 22ch;
+}
+.question-large em {
+  font-style: italic;
+}
+
+/* HR question slide */
+.hr-question {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 400;
+  font-size: 3rem;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+  max-width: 26ch;
+}
+.hr-question em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+/* Atom Bank intro details */
+.atom-intro-detail {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 2.5rem;
+  max-width: 50ch;
+}
+.atom-intro-detail span {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed var(--rule);
+  padding-bottom: 0.6rem;
+}
+
+/* Nature paper slide */
+.nature-figures {
+  display: flex;
+  gap: 6rem;
+  margin-top: 3rem;
+  align-items: baseline;
+}
+.nature-figures .figure-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.nature-figures .big {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 500;
+  font-size: 5rem;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.nature-figures .lab {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* 86% close */
+.close-86 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  height: 100%;
+}
+.close-86 .figure-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.close-86 .figure-block .hero-number { color: var(--ink); }
+
+/* Three mechanisms intro */
+.mechanism-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  height: 100%;
+  justify-content: center;
+}
+.mechanism-intro-q {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 500;
+  font-size: 5rem;
+  letter-spacing: -0.025em;
+  line-height: 1;
+}
+.mechanism-intro-list {
+  display: flex;
+  gap: 4rem;
+  align-items: baseline;
+}
+.mechanism-intro-list .item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  flex: 1;
+}
+.mechanism-intro-list .num {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.mechanism-intro-list .name {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 500;
+  font-size: 2rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  line-height: 1.1;
+}
+
+/* "Four steps" intro */
+.steps-intro {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+}
+.steps-intro-title {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 500;
+  font-size: 5.5rem;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  margin-bottom: 4rem;
+}
+.steps-intro-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+.steps-intro-list .item {
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--rule-strong);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.steps-intro-list .num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.steps-intro-list .name {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 500;
+  font-size: 1.4rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+/* 1938 / FLSA */
+.flsa-stage {
+  display: grid;
+  grid-template-columns: 1fr 1.8fr;
+  gap: 5rem;
+  align-items: center;
+  height: 100%;
+}
+.flsa-year {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 600;
+  font-size: 11rem;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  color: var(--ink);
+}
+.flsa-body {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 2rem;
+  line-height: 1.4;
+  color: var(--ink);
+  max-width: 26ch;
+}
+
+/* Hours were the proxy */
+.proxy-block {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  max-width: 28ch;
+}
+.proxy-block .lead {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 2.2rem;
+  line-height: 1.4;
+  color: var(--muted);
+  font-style: italic;
+}
+.proxy-block .punch {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 500;
+  font-size: 3.6rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  max-width: 22ch;
+}
+
+/* "21%" Gallup intro slide for Speaker 2 */
+.gallup-stage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  height: 100%;
+}
+.gallup-figure {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 600;
+  font-size: 14rem;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+  color: var(--ink);
+}
+.gallup-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  max-width: 30ch;
+}
+.gallup-body .head {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 2rem;
+  line-height: 1.35;
+  color: var(--ink);
+  font-style: italic;
+  letter-spacing: -0.005em;
+}
+.gallup-body .sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-top: 1rem;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   6. TRANSITIONS — 400ms cross-fades, 300ms fragment fades
+   ───────────────────────────────────────────────────────────── */
+.reveal .slides section {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.reveal .fragment {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.reveal .fragment.fade-out {
+  opacity: 1;
+}
+.reveal .fragment.fade-out.visible {
+  opacity: 0;
+}
+
+/* Soften background colour transitions on deep flips */
+.reveal-viewport,
+.reveal .slides > section {
+  transition: background-color 0.5s ease;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   7. CINEMATIC INITIAL STATES (JS triggers via slidechanged)
+   ───────────────────────────────────────────────────────────── */
+
+/* 1926 reveal — both elements start hidden */
+section[data-cinematic="1926-reveal"] .eyebrow,
+section[data-cinematic="1926-reveal"] .hero-number {
+  opacity: 0;
+}
+
+/* 438B counter — initial state */
+section[data-cinematic="438b-counter"] #counter-438b {
+  opacity: 1;
+}
+section[data-cinematic="438b-counter"] .counter-caption,
+section[data-cinematic="438b-counter"] .counter-source {
+  opacity: 0;
+}
+
+/* Iceland map — path hidden until drawn */
+section[data-cinematic="iceland-map"] .iceland-outline {
+  /* JS sets dasharray/offset */
+}
+section[data-cinematic="iceland-map"] .reykjavik-dot,
+section[data-cinematic="iceland-map"] .reykjavik-label,
+section[data-cinematic="iceland-map"] .iceland-caption-wrap {
+  opacity: 0;
+}
+
+/* Atom arrow */
+section[data-cinematic="atom-arrow"] .atom-arrow-line {
+  transform: scaleX(0);
+}
+section[data-cinematic="atom-arrow"] .atom-arrow-tip {
+  opacity: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   8. REVEAL CONTROL CHROME — invisible
+   ───────────────────────────────────────────────────────────── */
+.reveal .progress { display: none; }
+.reveal .controls { display: none !important; }
+
+/* Subtle pagination top-right */
+.slide-meta {
+  position: fixed;
+  top: 1.6rem;
+  right: 2rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  opacity: 0.4;
+  z-index: 10;
+  pointer-events: none;
+}
+
+body.deep-active .slide-meta { color: rgba(244, 239, 230, 0.4); }
+
+/* ─────────────────────────────────────────────────────────────
+   9. REDUCED MOTION + PRINT — fail-safe to final state
+   ───────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001s !important;
+    animation-delay: 0s !important;
+    transition-duration: 0.001s !important;
+    transition-delay: 0s !important;
+  }
+  /* Force final states */
+  section[data-cinematic="1926-reveal"] .eyebrow,
+  section[data-cinematic="1926-reveal"] .hero-number,
+  section[data-cinematic="438b-counter"] .counter-caption,
+  section[data-cinematic="438b-counter"] .counter-source,
+  section[data-cinematic="iceland-map"] .reykjavik-dot,
+  section[data-cinematic="iceland-map"] .reykjavik-label,
+  section[data-cinematic="iceland-map"] .iceland-caption-wrap,
+  section[data-cinematic="atom-arrow"] .atom-arrow-tip {
+    opacity: 1 !important;
+  }
+  section[data-cinematic="iceland-map"] .iceland-outline {
+    stroke-dasharray: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+  section[data-cinematic="atom-arrow"] .atom-arrow-line {
+    transform: scaleX(1) !important;
+  }
+}
+
+@media print {
+  section[data-cinematic] .eyebrow,
+  section[data-cinematic] .hero-number,
+  section[data-cinematic] .counter-caption,
+  section[data-cinematic] .counter-source,
+  section[data-cinematic] .reykjavik-dot,
+  section[data-cinematic] .reykjavik-label,
+  section[data-cinematic] .iceland-caption-wrap,
+  section[data-cinematic] .atom-arrow-tip {
+    opacity: 1 !important;
+  }
+  section[data-cinematic] .iceland-outline {
+    stroke-dasharray: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+  section[data-cinematic] .atom-arrow-line {
+    transform: scaleX(1) !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   10. RESPONSIVE — phones / narrow viewports
+   The JS below also switches reveal to a portrait deck (720×1280)
+   when window.innerWidth < 900 and orientation is portrait, so
+   slides fill the viewport instead of letterboxing.
+   ───────────────────────────────────────────────────────────── */
+
+/* Tablet & phone shared adjustments */
+@media (max-width: 900px) {
+  .reveal { font-size: 28px; }
+
+  .reveal .slides > section,
+  .reveal .slides > section > section {
+    padding: 2.6rem 1.6rem !important;
+  }
+
+  .slide-bottom { left: 1.6rem; right: 1.6rem; bottom: 2rem; }
+  .slide-top    { left: 1.6rem; right: 1.6rem; top: 2rem; }
+
+  /* Type — collapse oversized display sizes */
+  .hero-number          { font-size: 7rem; }
+  .hero-number--medium  { font-size: 5rem; }
+  .hero-number--small   { font-size: 4rem; }
+  .cover-title          { font-size: 4.2rem; }
+  .cover-sub            { font-size: 1.4rem; margin-top: 1.6rem; }
+  .compare-stack        { font-size: 3.6rem; }
+  .compare-stack > div + div { margin-top: 0.8rem; }
+  .held-line            { font-size: 3.8rem; }
+  .section-title        { font-size: 3.4rem; }
+  .formula              { font-size: 4.4rem; }
+  .it-didnt             { font-size: 4.8rem; }
+  .thanks               { font-size: 4rem; }
+  .flsa-year            { font-size: 6rem; }
+  .gallup-figure        { font-size: 7rem; }
+  .engagement-pair      { font-size: 4.4rem; gap: 1.4rem; }
+  .engagement-pair .arrow { font-size: 2.4rem; top: -0.3rem; }
+  .atom-figure          { font-size: 5rem; }
+  #counter-438b         { font-size: 5rem; }
+  .counter-caption      { font-size: 1.2rem; margin-top: 1.4rem; }
+  .counter-source       { margin-top: 2.4rem; }
+  .measuring            { font-size: 2.2rem; max-width: 24ch; }
+  .measuring .second-line { margin-top: 1rem !important; }
+
+  .body-callout         { font-size: 1.4rem; max-width: 100%; }
+  .body-callout--wide   { font-size: 1.5rem; }
+  .caption              { font-size: 1rem; }
+  .source               { font-size: 0.75rem; }
+  .data                 { font-size: 1rem; }
+  .data--small          { font-size: 0.85rem; }
+  .eyebrow              { font-size: 0.7rem; letter-spacing: 0.18em; }
+
+  .question-callout     { font-size: 1.7rem; }
+  .question-large       { font-size: 2.2rem; }
+  .hr-question          { font-size: 1.6rem; max-width: 100%; }
+
+  /* Step slides — stack number above body */
+  .step-slide {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+    align-items: flex-start;
+  }
+  .step-num             { font-size: 5rem; }
+  .step-title           { font-size: 1.8rem; max-width: 100%; }
+  .step-detail          { font-size: 1rem; max-width: 100%; }
+
+  /* Multi-column grids → stack */
+  .flsa-stage,
+  .portrait-block,
+  .gallup-stage,
+  .close-86 {
+    grid-template-columns: 1fr !important;
+    gap: 1.6rem !important;
+    align-items: flex-start;
+    height: auto;
+  }
+
+  .portrait-name        { font-size: 2.4rem; }
+  .portrait-role        { font-size: 1rem; }
+  .portrait-detail      { font-size: 1rem; max-width: 100%; }
+
+  .gallup-body .head    { font-size: 1.3rem; }
+  .gallup-body .sub     { font-size: 0.85rem; }
+
+  .flsa-body            { font-size: 1.2rem; max-width: 100%; }
+
+  .proxy-block          { max-width: 100%; }
+  .proxy-block .lead    { font-size: 1.3rem; }
+  .proxy-block .punch   { font-size: 2rem; max-width: 100%; }
+
+  /* Stat grid — 4 cols → 2x2 */
+  .stat-grid {
+    grid-template-columns: 1fr 1fr !important;
+    margin-top: 2rem;
+  }
+  .stat-cell {
+    padding: 1.2rem 1rem;
+    border-right: none !important;
+    border-bottom: 1px solid var(--rule);
+  }
+  .stat-cell:nth-child(odd) { border-right: 1px solid var(--rule) !important; }
+  .stat-cell:nth-last-child(-n+2) { border-bottom: none; }
+  .stat-cell .figure    { font-size: 2.8rem; margin-bottom: 0.6rem; }
+  .stat-cell .label-text { font-size: 0.9rem; }
+
+  /* Atom row — keep horizontal but tight */
+  .atom-row {
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 0.8rem;
+    padding: 1rem 0;
+  }
+  .atom-caption-wrap    { margin-top: 2rem; }
+
+  /* Country list — 2 cols → 1 col */
+  .country-list {
+    grid-template-columns: 1fr !important;
+    gap: 0;
+    margin-top: 1.6rem;
+    font-size: 1.05rem;
+  }
+  .country-list .country-detail { font-size: 0.9rem; display: block; margin-left: 0; margin-top: 0.2rem; }
+
+  /* Agenda + caveats */
+  .agenda-list { font-size: 1.1rem; }
+  .agenda-list li { grid-template-columns: 3rem 1fr; gap: 1rem; padding: 1rem 0; }
+  .caveat-list { font-size: 1rem; }
+  .caveat-list li { grid-template-columns: 2.4rem 1fr; gap: 0.8rem; padding: 1rem 0; }
+
+  /* Mechanisms */
+  .mechanism-intro-list {
+    flex-direction: column !important;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .mechanism-intro-list .item { flex: 0 0 auto; }
+  .mechanism-intro-q    { font-size: 2.8rem; }
+  .mechanism-num        { font-size: 0.75rem; margin-bottom: 1rem; }
+  .mechanism-title      { font-size: 2rem; max-width: 100%; }
+  .mechanism-body       { font-size: 1.1rem; max-width: 100%; margin-top: 1.4rem; }
+  .mechanism-quote      { font-size: 1rem; max-width: 100%; padding-left: 1rem; }
+  .mechanism-cite       { font-size: 0.7rem; padding-left: 1rem; }
+
+  /* Steps intro grid 4-col → 2x2 */
+  .steps-intro-title    { font-size: 2.8rem; margin-bottom: 2rem; }
+  .steps-intro-list     { grid-template-columns: 1fr 1fr !important; gap: 1.2rem; }
+  .steps-intro-list .name { font-size: 1.05rem; }
+  .steps-intro-list .num  { font-size: 0.75rem; }
+
+  /* Compare table */
+  .compare-table        { font-size: 0.85rem; margin-top: 1.6rem; }
+  .compare-table th,
+  .compare-table td     { padding: 0.7rem 0.8rem; }
+  .compare-table thead th { font-size: 0.7rem; }
+  .compare-table tbody th { width: 32%; }
+
+  /* Iceland map */
+  .iceland-eyebrow      { left: 1.6rem; top: 2rem; }
+  .iceland-svg          { width: 95%; }
+  .iceland-caption-wrap { bottom: 1.6rem; }
+  .iceland-caption      { font-size: 1.05rem; }
+
+  /* Data points list */
+  .data-point-list      { gap: 1rem; }
+  .data-point {
+    grid-template-columns: 6rem 1fr;
+    gap: 1rem;
+    padding-bottom: 1rem;
+  }
+  .data-point .figure   { font-size: 1rem; }
+  .data-point .label-text { font-size: 1rem; }
+
+  /* Atom intro detail (key-value list) */
+  .atom-intro-detail    { font-size: 0.85rem; max-width: 100%; }
+
+  /* Nature paper figures — flex wrap */
+  .nature-figures       { gap: 2rem; flex-wrap: wrap; margin-top: 2rem; }
+  .nature-figures .big  { font-size: 3rem; }
+  .nature-figures .lab  { font-size: 0.7rem; }
+
+  /* Callback (Speaker 6 cinematic) */
+  .callback-line        { font-size: 1.8rem; max-width: 100%; margin-top: 1.6rem; }
+  .callback-stage .eyebrow { margin-bottom: 2rem; }
+
+  /* Slide meta */
+  .slide-meta { right: 0.9rem; top: 0.7rem; font-size: 0.55rem; }
+}
+
+/* Phones — even tighter */
+@media (max-width: 480px) {
+  .reveal { font-size: 24px; }
+
+  .hero-number          { font-size: 5.6rem; }
+  .compare-stack        { font-size: 2.8rem; }
+  .held-line            { font-size: 3rem; }
+  .cover-title          { font-size: 3.2rem; }
+  .formula              { font-size: 3.4rem; }
+  .it-didnt             { font-size: 3.8rem; }
+  .thanks               { font-size: 3rem; }
+  .flsa-year            { font-size: 4.8rem; }
+  .gallup-figure        { font-size: 5.6rem; }
+  .engagement-pair      { font-size: 3.6rem; }
+  .atom-figure          { font-size: 4rem; }
+  #counter-438b         { font-size: 4rem; }
+  .step-num             { font-size: 4rem; }
+  .step-title           { font-size: 1.5rem; }
+  .measuring            { font-size: 1.7rem; }
+  .question-large       { font-size: 1.7rem; }
+  .mechanism-intro-q    { font-size: 2.2rem; }
+  .mechanism-title      { font-size: 1.6rem; }
+  .steps-intro-title    { font-size: 2.2rem; }
+  .portrait-name        { font-size: 2rem; }
+
+  .data-point           { grid-template-columns: 5rem 1fr; }
+}
+
+/* Phone landscape — keep 16:9 deck but trim padding */
+@media (max-height: 500px) and (orientation: landscape) {
+  .reveal .slides > section,
+  .reveal .slides > section > section {
+    padding: 1.6rem 2rem !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="slide-meta" id="slide-meta"></div>
+
+<div class="reveal">
+  <div class="slides">
+
+    <!-- ════════════════════════════════════════════════════════════
+         SPEAKER 1 — HOOK & FRAME
+         ════════════════════════════════════════════════════════════ -->
+
+    <!-- 1.1 Cover -->
+    <section data-section="speaker-1">
+      <div class="center-v" style="height:100%; gap:0;">
+        <div class="eyebrow">TED-STYLE TALK · APRIL 2026 · 15 MINUTES</div>
+        <h1 class="cover-title" style="margin-top:3rem;">The 4-Day Workweek.</h1>
+        <div class="cover-sub">A history of one hypothesis.</div>
+      </div>
+      <div class="slide-bottom">
+        <div class="source">Chulalongkorn University · Six speakers · April 28, 2026</div>
+      </div>
+      <aside class="notes">
+        Speakers walk on. Brief pause. Speaker 1 opens cold — no filler. Hold this slide for ~5 seconds before advancing to "Sixty hours."
+      </aside>
+    </section>
+
+    <!-- 1.2 Grandparents — sixty hours / six days -->
+    <section data-section="speaker-1">
+      <div class="center-v" style="height:100%;">
+        <div class="compare-stack">
+          <div>Sixty hours.</div>
+          <div class="secondary">Six days.</div>
+        </div>
+      </div>
+      <aside class="notes">
+        Picture your grandparent. They probably worked sixty hours a week. Six days. That was normal. Not just for them — for almost everyone in the industrial world.
+      </aside>
+    </section>
+
+    <!-- 1.3 Now — five days -->
+    <section data-section="speaker-1">
+      <div class="center-v" style="height:100%;">
+        <div class="compare-stack">
+          <div>Five days.</div>
+          <div class="secondary">Forty hours.</div>
+          <div class="secondary" style="font-size:5rem; color:var(--muted);">Two days off — what we call the weekend.</div>
+        </div>
+      </div>
+      <aside class="notes">
+        Now picture your own week. Five days. Roughly forty hours. Two days off — what we call the weekend. Feels eternal, doesn't it. Feels like nature.
+      </aside>
+    </section>
+
+    <!-- 1.4 "It isn't." -->
+    <section data-section="speaker-1">
+      <div class="center-both" style="height:100%;">
+        <div class="held-line">It isn't.</div>
+      </div>
+      <aside class="notes">
+        It isn't.
+
+        [Hold for at least two seconds of silence. This is the entire setup of the talk. Do not rush it.]
+      </aside>
+    </section>
+
+    <!-- 1.5 1926 reveal — CINEMATIC #1 -->
+    <section data-section="speaker-1" data-cinematic="1926-reveal">
+      <div class="reveal1926">
+        <div class="eyebrow">FORD MOTOR COMPANY</div>
+        <div class="hero-number">1926</div>
+      </div>
+      <aside class="notes">
+        In 1926, Henry Ford made a decision. At his Detroit factories, he cut his workers from six days down to five. Same pay. Forty hours instead of forty-eight. He wasn't being generous. He was running an experiment. He believed rested workers would produce more — and would have the time and money to spend during their leisure. Perhaps on his cars.
+      </aside>
+    </section>
+
+    <!-- 1.6 1938 / FLSA -->
+    <section data-section="speaker-1">
+      <div class="flsa-stage">
+        <div>
+          <div class="eyebrow" style="margin-bottom:1.6rem;">WITHIN A DECADE</div>
+          <div class="flsa-year">1938.</div>
+        </div>
+        <div class="flsa-body">
+          Roosevelt's Fair Labor Standards Act enshrined the forty-hour week into U.S. law. The five-day week we treat as eternal is, in fact, almost exactly one hundred years old.
+          <div class="caption" style="margin-top:1.6rem;">A business decision. Made by one man. Based on a hypothesis.</div>
+        </div>
+      </div>
+      <aside class="notes">
+        He turned out to be right. By the late 1930s, Roosevelt's Fair Labor Standards Act enshrined the forty-hour week into U.S. law. Other countries followed. The five-day week we treat as eternal is, in fact, almost exactly one hundred years old. A business decision. Made by one man. Based on a hypothesis about how rest and productivity actually work.
+      </aside>
+    </section>
+
+    <!-- 1.7 [beat] the question to sit with -->
+    <section data-section="speaker-1">
+      <div class="center-v" style="height:100%;">
+        <div class="eyebrow" style="margin-bottom:3rem;">THE QUESTION</div>
+        <div class="question-callout">
+          If six days became five because of <em>a hypothesis</em>,<br>
+          what stops five days from becoming four if a new hypothesis turns out to be true?
+        </div>
+      </div>
+      <aside class="notes">
+        [beat] Here is the question we want you to sit with for the next fifteen minutes. If six days became five because of a hypothesis — what stops five days from becoming four if a new hypothesis turns out to be true?
+
+        That hypothesis is being tested right now. Not in op-eds. In Iceland. In the United Kingdom. In Spain, Portugal, Belgium, Australia, Ireland, the United States. Tens of thousands of workers across more than one hundred and forty organisations, peer-reviewed in Nature Human Behaviour just last July.
+      </aside>
+    </section>
+
+    <!-- 1.8 Tonight — three things -->
+    <section data-section="speaker-1">
+      <div class="center-v" style="height:100%;">
+        <div class="eyebrow">TONIGHT — THREE THINGS</div>
+        <ol class="agenda-list">
+          <li>Why this conversation is happening in 2026, and not 2016.</li>
+          <li>What the largest workplace trials in history actually found.</li>
+          <li>Four practical steps if you are considering it.</li>
+        </ol>
+        <div class="caption" style="margin-top:3rem;">Because I think the leaders in this room should consider it.</div>
+      </div>
+      <aside class="notes">
+        Tonight we will do three things. We'll tell you why this conversation is happening now, in 2026, and not ten years ago. We'll show you what the largest workplace trials in history actually found. And we'll give you four practical steps if you are considering it.
+
+        Because I think the leaders in this room should consider it.
+
+        [Handoff to Speaker 2: "And the reason this is on the table in 2026 — and not 2016 — comes down to a few numbers. (Speaker 2's name) is going to give them to you."]
+      </aside>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════
+         SPEAKER 2 — WHY NOW
+         ════════════════════════════════════════════════════════════ -->
+
+    <!-- 2.1 21% engagement, Gallup 2024 -->
+    <section data-section="speaker-2">
+      <div class="gallup-stage">
+        <div class="gallup-figure">21<span style="font-weight:500;">%</span></div>
+        <div class="gallup-body">
+          <div class="eyebrow">GALLUP · 2024</div>
+          <div class="head">— of employees worldwide are engaged at work.</div>
+          <div class="sub">Down two points in a single year. Only the second annual decline in twelve years. The first was the pandemic itself.</div>
+          <div class="source" style="margin-top:1rem;">State of the Global Workplace 2025</div>
+        </div>
+      </div>
+      <aside class="notes">
+        Last year, Gallup published its State of the Global Workplace report. Their finding: only twenty-one percent of employees worldwide are engaged at work. That number fell two percentage points in a single year — only the second annual decline in twelve years. The first one was the pandemic itself.
+
+        Forty-one percent of employees globally said they had experienced a lot of stress the previous day. And Gallup put a number on the cost.
+      </aside>
+    </section>
+
+    <!-- 2.2 $438B counter — CINEMATIC #2 + DEEP -->
+    <section class="deep" data-section="speaker-2" data-cinematic="438b-counter">
+      <div class="counter-wrap">
+        <div class="eyebrow counter-eyebrow">LOST PRODUCTIVITY · 2024</div>
+        <div id="counter-438b">$0</div>
+        <div class="counter-caption">lost productivity, 2024.</div>
+        <div class="source counter-source">Gallup, State of the Global Workplace 2025</div>
+      </div>
+      <aside class="notes">
+        Four hundred and thirty-eight billion U.S. dollars in lost productivity in 2024 alone.
+
+        That is not a marginal number. That is a global crisis happening inside the boundaries of normal-looking workplaces. Now ask yourselves why.
+
+        [Hold this deep slide for ~30 seconds. Slow down on the dollar figure. Let it sit.]
+      </aside>
+    </section>
+
+    <!-- 2.3 Hours were the proxy -->
+    <section data-section="speaker-2">
+      <div class="center-v" style="height:100%;">
+        <div class="proxy-block">
+          <div class="lead">For most of the last century, the deal at work was simple. You showed up. You put in your hours. You went home.</div>
+          <div class="punch">Hours were the proxy. The clock was the contract.</div>
+        </div>
+      </div>
+      <aside class="notes">
+        For most of the last century, the deal at work was simple. You showed up. You put in your hours. You went home. Your manager could see you working, so they trusted you were working. Hours were the proxy for output. The clock was the contract.
+
+        Then March 2020 happened. We sent everyone home with a laptop. And we discovered something uncomfortable. Some people produced more. Some produced less. And nobody — not the worker, not the manager, not the executive team — could honestly say what an "eight-hour day" really meant anymore.
+      </aside>
+    </section>
+
+    <!-- 2.4 "Measuring time / measuring work" — DEEP, held -->
+    <section class="deep" data-section="speaker-2">
+      <div class="center-both" style="height:100%;">
+        <div class="measuring">
+          <div class="first-line">We had been measuring time.</div>
+          <div class="second-line" style="margin-top:1.6rem;">We had never been measuring work.</div>
+        </div>
+      </div>
+      <aside class="notes">
+        We had been measuring time. We had never been measuring work.
+
+        [This is the screenshot moment. Memorise it — do not read it. Beat before. Beat after. Hold this slide for at least 45 seconds. Let the audience absorb. This line is the thesis of the section.]
+      </aside>
+    </section>
+
+    <!-- 2.5 Manager engagement collapse — post-beat -->
+    <section data-section="speaker-2">
+      <div class="center-v" style="height:100%;">
+        <div class="eyebrow" style="margin-bottom:2rem;">MANAGER ENGAGEMENT, ONE YEAR</div>
+        <div class="engagement-pair">
+          <span class="from">30%</span>
+          <span class="arrow">→</span>
+          <span class="to">27%</span>
+        </div>
+        <div class="caption" style="margin-top:3rem; max-width:40ch;">
+          Among the people supposed to be holding things together. Female managers fell seven points.
+          <span style="display:block; margin-top:0.6rem; font-style:normal; color:var(--ink);">The middle is breaking.</span>
+        </div>
+      </div>
+      <aside class="notes">
+        [beat] Out of that confusion came new vocabulary. The Great Resignation. Quiet quitting. The Sunday Scaries. Burnout went from clinical jargon to coffee-shop small talk. Gallup found that even among managers — the people supposed to be holding things together — engagement dropped from thirty percent to twenty-seven percent in a single year. Female managers fell seven points. The middle is breaking.
+      </aside>
+    </section>
+
+    <!-- 2.6 The HR question -->
+    <section data-section="speaker-2">
+      <div class="center-v" style="height:100%;">
+        <div class="eyebrow" style="margin-bottom:2.5rem;">THE QUESTION FOR HR LEADERS · 2026</div>
+        <div class="hr-question">
+          If hours don't predict output, <em>what does?</em>
+          <br><br>
+          And if a culture of long hours is producing burnt-out workers who cost us hundreds of billions — what would happen if we tried something else?
+        </div>
+        <div class="caption" style="margin-top:3rem;">That is not an idealistic question. It is a financial question.</div>
+      </div>
+      <aside class="notes">
+        So in 2026, the question for HR leaders is not "should we let people work from home." That question is settled. The question is the bigger one underneath it. If hours don't predict output, what does? And if a culture of long hours is producing burnt-out, disengaged employees who cost us hundreds of billions — what would happen if we tried something else?
+
+        That is not an idealistic question. It is a financial question.
+
+        And one country answered it before the rest of us were even asking.
+
+        [Handoff to Speaker 3: "(Speaker 3's name) is going to take you to Iceland."]
+      </aside>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════
+         SPEAKER 3 — ICELAND
+         ════════════════════════════════════════════════════════════ -->
+
+    <!-- 3.1 Iceland map — CINEMATIC #3 -->
+    <section data-section="speaker-3" data-cinematic="iceland-map">
+      <div class="iceland-eyebrow">
+        <div class="eyebrow">ICELAND · 2015–2019</div>
+      </div>
+      <div class="iceland-stage">
+        <svg class="iceland-svg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid meet" aria-label="Outline of Iceland">
+          <path class="iceland-outline"
+                d="M 220 200
+                   C 200 195 175 200 165 220
+                   C 155 240 165 260 185 270
+                   C 175 285 180 300 200 310
+                   C 230 320 270 320 305 315
+                   C 350 310 400 300 450 295
+                   C 510 290 565 290 615 280
+                   C 660 270 690 250 685 220
+                   C 680 200 645 190 610 195
+                   C 555 200 495 195 440 200
+                   C 380 205 320 195 275 195
+                   C 250 195 230 195 220 200 Z" />
+          <!-- Reykjavík dot in southwest -->
+          <circle class="reykjavik-dot" cx="200" cy="305" r="6" />
+          <text class="reykjavik-label" x="170" y="335">REYKJAVÍK</text>
+        </svg>
+        <div class="iceland-caption-wrap">
+          <div class="iceland-caption">2,500 workers. 66 workplaces. 1% of a country.</div>
+        </div>
+      </div>
+      <aside class="notes">
+        Iceland.
+
+        Three hundred and forty thousand people. A tiny island in the North Atlantic. And between 2015 and 2019, the site of the world's largest public-sector trial of a shorter working week. Two trials, run by Reykjavík City Council and the Icelandic government, covering roughly 2,500 workers — over one percent of Iceland's entire workforce.
+
+        [Let the slow draw breathe. This is the geography breath — a slow exhale before Arna's story.]
+      </aside>
+    </section>
+
+    <!-- 3.2 Arna -->
+    <section data-section="speaker-3">
+      <div class="portrait-block">
+        <div>
+          <div class="eyebrow" style="margin-bottom:2rem;">ONE OF THE 2,500</div>
+          <div class="portrait-name">Arna Aradóttir.</div>
+          <div class="portrait-role">Public-health project manager.<br>Mother of five.</div>
+        </div>
+        <div>
+          <div class="portrait-detail">
+            In 2015, her workplace was selected for the trial. Her hours were cut from forty per week to thirty-six. Same salary. She enrolled in a time-management course. She learned to shorten meetings. She stopped travelling across town for conversations that could be a phone call.
+          </div>
+          <div class="portrait-detail" style="margin-top:1.5rem; color:var(--ink); font-style:italic;">
+            Today she works eight hours Monday through Thursday, and four hours on Friday.
+          </div>
+          <div class="caption" style="margin-top:2rem;">She calls it focused. She calls it sustainable.</div>
+        </div>
+      </div>
+      <aside class="notes">
+        I want to introduce you to one of them. Her name is Arna Aradóttir. [AHR-nah AR-uh-DOH-tir] She is a public-health project manager in the suburbs of Reykjavík. She is the mother of five children, and she was struggling to balance an eight-hour workday with childcare and the second shift at home.
+
+        In 2015, her workplace was selected for the trial. Her hours were cut from forty per week to thirty-six. Same salary. She enrolled in a time-management course. She learned to shorten meetings. She stopped travelling across town for conversations that could be a phone call. Today she works eight hours Monday through Thursday, and four hours on Friday. She calls it focused. She calls it sustainable.
+      </aside>
+    </section>
+
+    <!-- 3.3 Did service slip? — held during [beat] -->
+    <section data-section="speaker-3">
+      <div class="question-slide">
+        <div class="eyebrow">66 WORKPLACES · PRESCHOOLS · HOSPITALS · SOCIAL SERVICES · THE MAYOR'S OFFICE</div>
+        <div class="question-large">
+          They asked one question. <em>Did service slip when hours dropped?</em>
+        </div>
+      </div>
+      <aside class="notes">
+        Her story is not unusual. Researchers from the UK think tank Autonomy and the Icelandic association Alda followed sixty-six workplaces across the trials — preschools, hospitals, social services, even the Reykjavík mayor's office. They asked one question: did service slip when hours dropped?
+
+        [beat — three full seconds of silence. Do not fill it. Do not look down. The audience has to feel the answer before they hear the data.]
+      </aside>
+    </section>
+
+    <!-- 3.4 "It didn't." — DEEP -->
+    <section class="deep" data-section="speaker-3">
+      <div class="center-both" style="height:100%;">
+        <div class="it-didnt">It didn't.</div>
+      </div>
+      <aside class="notes">
+        It didn't.
+
+        [Three-second hold. Then a hard cut back to paper for the data.]
+      </aside>
+    </section>
+
+    <!-- 3.5 Iceland data points -->
+    <section data-section="speaker-3">
+      <div>
+        <div class="eyebrow" style="margin-bottom:3rem;">WHAT THE DATA SHOWED</div>
+        <ul class="data-point-list">
+          <li class="data-point">
+            <span class="figure">93% / 85%</span>
+            <span class="label-text">Government call centre answered <strong>93% of incoming calls</strong> — versus <strong>85%</strong> at a comparable workplace that didn't change.</span>
+          </li>
+          <li class="data-point">
+            <span class="figure">+6.5%</span>
+            <span class="label-text">Reykjavík <strong>Department of Accountancy</strong> entered six and a half percent more invoices than before.</span>
+          </li>
+          <li class="data-point">
+            <span class="figure">held</span>
+            <span class="label-text"><strong>Child Protection Services</strong> kept the same number of active cases.</span>
+          </li>
+        </ul>
+        <div class="caption" style="margin-top:3rem;">Productivity held. Or it improved. Workers reported less stress, less burnout, more time with family.</div>
+      </div>
+      <aside class="notes">
+        Child Protection Services kept the same number of active cases. A government call centre answered ninety-three percent of incoming calls — versus eighty-five percent at a comparable workplace that didn't change. The Reykjavík Department of Accountancy entered six and a half percent more invoices than before. Productivity held. Or it improved. Workers reported less stress, less burnout, more time with family. Men in heterosexual relationships took on more housework.
+      </aside>
+    </section>
+
+    <!-- 3.6 86% close -->
+    <section data-section="speaker-3">
+      <div class="close-86">
+        <div class="figure-block">
+          <div class="eyebrow" style="margin-bottom:2rem;">ICELAND · TODAY</div>
+          <div class="hero-number">86%</div>
+        </div>
+        <div>
+          <div class="body-callout" style="font-size:2rem;">
+            of Iceland's workforce either works shorter hours, or has the contractual right to ask for them.
+          </div>
+          <div class="caption" style="margin-top:2.5rem;">Iceland didn't pass a law. They ran an experiment, published the results, and let workers and unions do the rest.</div>
+        </div>
+      </div>
+      <aside class="notes">
+        The trials ended in 2019. And then something remarkable happened. Icelandic trade unions took the data to the bargaining table. Today, eighty-six percent of Iceland's workforce either works shorter hours, or has the contractual right to ask for them.
+
+        Iceland didn't pass a law. They ran an experiment, published the results, and let workers and unions do the rest. That is the shape of the thing.
+
+        [Handoff to Speaker 4: "But Iceland is small, and the public sector is forgiving. The real test came in the UK private sector. (Speaker 4's name)."]
+      </aside>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════
+         SPEAKER 4 — UK + GLOBAL
+         ════════════════════════════════════════════════════════════ -->
+
+    <!-- 4.1 100-80-100 -->
+    <section data-section="speaker-4">
+      <div class="center-v" style="height:100%;">
+        <div class="eyebrow" style="margin-bottom:2.5rem;">UK PILOT · 2022 · 4 DAY WEEK GLOBAL × AUTONOMY</div>
+        <div class="formula">
+          100<span class="em-dash">—</span>80<span class="em-dash">—</span>100
+        </div>
+        <div class="caption" style="margin-top:2.4rem; font-size:1.5rem; max-width:42ch;">
+          Full pay. Eighty percent of hours. One hundred percent of expected output.
+        </div>
+        <div class="data" style="margin-top:3rem; color:var(--muted);">61 companies · ~2,900 workers · 6 months</div>
+        <div class="source" style="margin-top:1rem;">Schor & Fan, Boston College · Frayne & Burchell, Cambridge</div>
+      </div>
+      <aside class="notes">
+        Here's the test that mattered.
+
+        Summer 2022. Sixty-one UK companies and around 2,900 workers signed up for a six-month pilot. Run by 4 Day Week Global and Autonomy. Researched independently by Juliet Schor and Wen Fan at Boston College, with David Frayne and Brendan Burchell at Cambridge. The model was simple: 100-80-100. Full pay. Eighty percent of hours. One hundred percent of expected output.
+      </aside>
+    </section>
+
+    <!-- 4.2 Four-stat grid — small multiples (fragments) -->
+    <section data-section="speaker-4">
+      <div>
+        <div class="eyebrow">OF THE 61 COMPANIES, ONE YEAR LATER</div>
+        <div class="stat-grid">
+          <div class="stat-cell fragment fade-in" data-fragment-index="0">
+            <div class="figure">71%</div>
+            <div class="label-text">reported less burnout.</div>
+          </div>
+          <div class="stat-cell fragment fade-in" data-fragment-index="1">
+            <div class="figure">−65%</div>
+            <div class="label-text">sick days.</div>
+          </div>
+          <div class="stat-cell fragment fade-in" data-fragment-index="2">
+            <div class="figure">−57%</div>
+            <div class="label-text">staff turnover.</div>
+          </div>
+          <div class="stat-cell fragment fade-in" data-fragment-index="3">
+            <div class="figure gain">+1.4%</div>
+            <div class="label-text">average revenue.</div>
+          </div>
+        </div>
+        <div class="data" style="margin-top:3.5rem; color:var(--muted); font-size:1.1rem;">
+          Of 61 companies: <strong style="color:var(--ink);">56 chose to continue. 18 made it permanent on the spot.</strong>
+        </div>
+      </div>
+      <aside class="notes">
+        The headline numbers when the report came out: seventy-one percent of employees reported less burnout. Sick days fell sixty-five percent. Staff turnover dropped fifty-seven percent compared with the year before. Revenue at the twenty-three companies that shared financials rose by an average of one point four percent. Of the sixty-one companies, fifty-six chose to continue. Eighteen made it permanent on the spot.
+
+        [Group these rhythmically: "Seventy-one — sixty-five — fifty-seven — one point four." Differentiate with voice.]
+      </aside>
+    </section>
+
+    <!-- 4.3 Atom Bank intro -->
+    <section data-section="speaker-4">
+      <div class="center-v" style="height:100%;">
+        <div class="eyebrow" style="margin-bottom:2rem;">ATOM BANK · DURHAM, ENGLAND</div>
+        <div class="body-callout body-callout--wide" style="font-size:2.6rem; max-width:36ch;">
+          The first UK bank to put everyone on a thirty-four-hour, four-day week.
+        </div>
+        <div class="atom-intro-detail">
+          <span><span style="color:var(--ink);">Started</span> <span>November 2021</span></span>
+          <span><span style="color:var(--ink);">Hours per week</span> <span>34</span></span>
+          <span><span style="color:var(--ink);">Days per week</span> <span>4</span></span>
+          <span><span style="color:var(--ink);">Pay</span> <span>unchanged</span></span>
+        </div>
+      </div>
+      <aside class="notes">
+        I want to give you one of those companies in detail. Atom Bank. A digital-only bank based in Durham, England. They actually started before the official pilot — November 2021 — putting everyone on a thirty-four-hour, four-day week.
+      </aside>
+    </section>
+
+    <!-- 4.4 Atom Bank arrow — CINEMATIC #4 -->
+    <section data-section="speaker-4" data-cinematic="atom-arrow">
+      <div class="atom-stage">
+        <div style="text-align:center; margin-bottom:2rem;">
+          <div class="eyebrow">TRUSTPILOT SCORE · 10 MONTHS IN</div>
+        </div>
+        <div class="atom-row">
+          <div class="atom-figure before">4.54</div>
+          <div class="atom-arrow-wrap">
+            <div class="atom-arrow-line"></div>
+            <div class="atom-arrow-tip"></div>
+          </div>
+          <div class="atom-figure after">4.82</div>
+        </div>
+        <div class="atom-caption-wrap">
+          <div style="text-align:center; max-width:60ch;">
+            <div class="caption" style="font-size:1.4rem;">Customer goodwill scores up. Job applications +49%.</div>
+            <div class="data" style="margin-top:1rem; color:var(--ink);">91% of staff said they finished everything in four days.</div>
+          </div>
+        </div>
+      </div>
+      <aside class="notes">
+        Ten months in, their Trustpilot score had risen from 4.54 to 4.82 out of five. Customer goodwill scores went up. Ninety-one percent of staff said they finished everything in four days. Job applications jumped by nearly fifty percent. Three years on, they are still running it.
+      </aside>
+    </section>
+
+    <!-- 4.5 Other countries -->
+    <section data-section="speaker-4">
+      <div>
+        <div class="eyebrow" style="margin-bottom:3rem;">ALSO RUNNING</div>
+        <ul class="country-list">
+          <li>
+            <span class="country-name">Spain</span>
+            <span class="country-detail">— government-backed industrial pilot.</span>
+          </li>
+          <li>
+            <span class="country-name">Portugal</span>
+            <span class="country-detail">— 41 companies, six months, 95% rated positively.</span>
+          </li>
+          <li>
+            <span class="country-name">Belgium</span>
+            <span class="country-detail">— right-to-request, written into law in 2022.</span>
+          </li>
+          <li>
+            <span class="country-name">Australia · Ireland · USA</span>
+            <span class="country-detail">— private-sector pilots ongoing.</span>
+          </li>
+        </ul>
+        <div class="caption" style="margin-top:3rem; max-width:42ch;">
+          Belgium's version is <em style="color:var(--accent); font-style:normal;">compressed</em> hours, not reduced. That distinction matters — and we'll come back to it.
+        </div>
+      </div>
+      <aside class="notes">
+        This is not just the UK. Spain ran a government-backed industrial pilot. Portugal ran a six-month trial across forty-one companies — ninety-five percent rated it positively. Only four reverted to a five-day week. Belgium passed a law in 2022 giving every worker the right to request a four-day week — though Belgium's version is compressed hours, not reduced, and that distinction matters.
+      </aside>
+    </section>
+
+    <!-- 4.6 Nature Human Behaviour 2025 -->
+    <section data-section="speaker-4">
+      <div>
+        <div class="eyebrow" style="margin-bottom:2.5rem;">NATURE HUMAN BEHAVIOUR · JULY 2025</div>
+        <div class="body-callout" style="font-size:2.2rem; max-width:36ch;">
+          The most important publication yet. Fan & Schor, with twelve control companies.
+        </div>
+        <div class="nature-figures">
+          <div class="figure-block"><div class="big">2,896</div><div class="lab">Workers</div></div>
+          <div class="figure-block"><div class="big">141</div><div class="lab">Organisations</div></div>
+          <div class="figure-block"><div class="big">6</div><div class="lab">Countries</div></div>
+        </div>
+        <div class="caption" style="margin-top:3rem; max-width:50ch;">
+          Lower burnout. Better job satisfaction. Better mental and physical health. The control group showed none of those gains.
+        </div>
+        <div class="source" style="margin-top:2rem;">Roughly 200 UK companies are now permanently on a four-day week. The novelty has worn off. The data hasn't.</div>
+      </div>
+      <aside class="notes">
+        And in July last year, the most important publication yet. Fan and Schor's team in Nature Human Behaviour: 2,896 workers across 141 organisations, six countries, twelve control companies. The four-day week group showed lower burnout, better job satisfaction, better mental and physical health. The control group showed none of those gains.
+
+        This is not a fad. Roughly two hundred UK companies are now permanently on a four-day week. The novelty has worn off. The data hasn't.
+
+        [Handoff to Speaker 5: "So why does it work? And — be honest — where doesn't it? (Speaker 5's name)."]
+      </aside>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════
+         SPEAKER 5 — MECHANISMS + CAVEATS
+         ════════════════════════════════════════════════════════════ -->
+
+    <!-- 5.1 Why does it work — three mechanisms -->
+    <section data-section="speaker-5">
+      <div class="mechanism-intro">
+        <div>
+          <div class="eyebrow" style="margin-bottom:2rem;">PART THREE — MECHANISMS</div>
+          <div class="mechanism-intro-q">Why does it work?</div>
+          <div class="caption" style="margin-top:1.6rem;">Three mechanisms recur in the research.</div>
+        </div>
+        <div class="mechanism-intro-list">
+          <div class="item">
+            <div class="num">One</div>
+            <div class="name">Parkinson's law.</div>
+          </div>
+          <div class="item">
+            <div class="num">Two</div>
+            <div class="name">Focus protection.</div>
+          </div>
+          <div class="item">
+            <div class="num">Three</div>
+            <div class="name">The second shift.</div>
+          </div>
+        </div>
+      </div>
+      <aside class="notes">
+        There's a question we haven't answered yet. Why does it work? And — let's be honest with each other — where doesn't it?
+
+        Three mechanisms recur in the research.
+      </aside>
+    </section>
+
+    <!-- 5.2 Mechanism 1: Parkinson's law -->
+    <section data-section="speaker-5">
+      <div class="center-v" style="height:100%;">
+        <div class="mechanism-num">One — Parkinson's law</div>
+        <div class="mechanism-title">Work expands to fill the time available.</div>
+        <div class="mechanism-body">
+          Give people five days, and they find five days of meetings, emails, performative busyness. Give them four, and the actual essential work — to everyone's surprise — fits.
+        </div>
+      </div>
+      <aside class="notes">
+        First, Parkinson's law. Work expands to fill the time available. Give people five days, and they find five days of meetings, emails, performative busyness. Give them four, and the actual essential work — to everyone's surprise — fits.
+      </aside>
+    </section>
+
+    <!-- 5.3 Mechanism 2: Focus protection -->
+    <section data-section="speaker-5">
+      <div class="center-v" style="height:100%;">
+        <div class="mechanism-num">Two — Focus protection</div>
+        <div class="mechanism-title">The most common change reported in Iceland: cutting meetings.</div>
+        <div class="mechanism-quote">"Rest and performance aren't enemies. Tired people make more errors. Rested people focus harder when they do work. Sleep is not a wellness perk — it is a productivity input."</div>
+        <div class="mechanism-cite">Pedro Gomes · Birkbeck, University of London</div>
+      </div>
+      <aside class="notes">
+        Second, focus protection. In Iceland, the most common change participants reported was cutting meetings: either truncating them, or replacing them with an email. Pedro Gomes, the Birkbeck economist, captured it well — rest and performance aren't enemies. Tired people make more errors. Rested people focus harder when they do work. Sleep is not a wellness perk. It is a productivity input.
+      </aside>
+    </section>
+
+    <!-- 5.4 Mechanism 3: The second shift -->
+    <section data-section="speaker-5">
+      <div class="center-v" style="height:100%;">
+        <div class="mechanism-num">Three — The second shift</div>
+        <div class="mechanism-title">Men in heterosexual relationships took on more housework when their hours dropped.</div>
+        <div class="mechanism-body">
+          Iceland and the UK pilots both found this. The four-day week is, quietly, a gender equity intervention.
+          <span style="display:block; margin-top:1.4rem; font-style:italic; color:var(--muted);">Worth saying out loud.</span>
+        </div>
+      </div>
+      <aside class="notes">
+        Third, the second shift. In Iceland and the UK pilots, men in heterosexual relationships consistently took on more household labour when their hours dropped. The four-day week is, quietly, a gender equity intervention. Worth saying out loud.
+
+        [beat after "Worth saying out loud."]
+      </aside>
+    </section>
+
+    <!-- 5.5 Caveats — four -->
+    <section data-section="speaker-5">
+      <div>
+        <div class="eyebrow" style="margin-bottom:2.5rem;">FOUR CAVEATS — BECAUSE WE ARE NOT HERE TO SELL YOU SOMETHING</div>
+        <ol class="caveat-list">
+          <li><span class="caveat-strong">100-80-100 means same output in less time.</span> It is not less work. It is rearranged work. Companies that just chop a day off the calendar fail.</li>
+          <li><span class="caveat-strong">Almost every pilot is self-selected.</span> Companies that want this to work, opt in. Workers who want it to work, stay. Generalising is a stretch.</li>
+          <li><span class="caveat-strong">The sectoral problem.</span> Manufacturing shift work. Hospitals. Retail. Hospitality. You cannot cut a nurse's caseload by 20% without hiring more nurses — and nurses are already in shortage. Unsolved.</li>
+          <li><span class="caveat-strong">Compressed ≠ reduced.</span> Compressed hours can <em style="color:var(--accent); font-style:normal;">increase</em> stress. Don't conflate the two models.</li>
+        </ol>
+      </div>
+      <aside class="notes">
+        Now the caveats. Because we are not here to sell you something.
+
+        One. The 100-80-100 model means the same output in less time. That is harder than it sounds. It is not "less work." It is rearranged work. Companies that don't redesign their workflows — that just chop a day off the calendar — fail.
+
+        Two. Almost every pilot you've heard about tonight is self-selected. Companies that want this to work, opt in. Workers who want it to work, stay. Generalising those results to companies that don't want it is a stretch.
+
+        Three. The sectoral problem. Manufacturing shift work. Hospitals. Frontline retail. Hospitality. You cannot cut a nurse's caseload by twenty percent without hiring more nurses — and nurses are already in shortage. The four-day week, in its reduced-hours form, was built in and for knowledge work. Scaling beyond is unsolved.
+
+        Four — and this is the one I want you to remember — Belgium's law gives workers the right to compress forty hours into four longer days. That is not what Iceland and the UK studied. Compressed hours can actually increase stress. Don't conflate the two models.
+      </aside>
+    </section>
+
+    <!-- 5.6 Reduced ≠ Compressed table -->
+    <section data-section="speaker-5">
+      <div>
+        <div class="eyebrow">REDUCED ≠ COMPRESSED</div>
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="col-reduced">REDUCED — Iceland, UK</th>
+              <th class="col-compressed">COMPRESSED — Belgium law</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Hours per week</th>
+              <td class="col-reduced">32 — 36</td>
+              <td class="col-compressed">40</td>
+            </tr>
+            <tr>
+              <th>Days per week</th>
+              <td class="col-reduced">4</td>
+              <td class="col-compressed">4</td>
+            </tr>
+            <tr>
+              <th>Pay</th>
+              <td class="col-reduced">unchanged</td>
+              <td class="col-compressed">unchanged</td>
+            </tr>
+            <tr>
+              <th>Output expected</th>
+              <td class="col-reduced">100%</td>
+              <td class="col-compressed">100%</td>
+            </tr>
+            <tr>
+              <th>Stress impact</th>
+              <td class="col-reduced">lower</td>
+              <td class="col-compressed">higher</td>
+            </tr>
+            <tr>
+              <th>Studied at scale</th>
+              <td class="col-reduced">yes</td>
+              <td class="col-compressed">no</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="caption" style="margin-top:2.5rem; max-width:50ch;">
+          When you read about a company "going to four days," ask which one. They are not the same intervention.
+        </div>
+      </div>
+      <aside class="notes">
+        [This table is the visual punchline of the caveats section. It is the one chart the deck contains because the eye sees the difference instantly.]
+
+        [Handoff to Speaker 6: "So if you take all of that seriously — what do you actually do? (Speaker 6's name)."]
+      </aside>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════
+         SPEAKER 6 — RECOMMENDATIONS + CLOSE
+         ════════════════════════════════════════════════════════════ -->
+
+    <!-- 6.1 Four steps intro -->
+    <section data-section="speaker-6">
+      <div class="steps-intro">
+        <div>
+          <div class="eyebrow" style="margin-bottom:2rem;">PART FOUR — WHAT YOU ACTUALLY DO</div>
+          <div class="steps-intro-title">Four steps. In order.</div>
+        </div>
+        <div class="steps-intro-list">
+          <div class="item"><div class="num">One</div><div class="name">Audit before you touch the schedule.</div></div>
+          <div class="item"><div class="num">Two</div><div class="name">Define success in outputs, not hours.</div></div>
+          <div class="item"><div class="num">Three</div><div class="name">Pilot for at least six months.</div></div>
+          <div class="item"><div class="num">Four</div><div class="name">Protect the gain.</div></div>
+        </div>
+      </div>
+      <aside class="notes">
+        So you are sitting in this room. You manage a team. You've heard the data. What do you actually do?
+
+        Four steps. In order.
+      </aside>
+    </section>
+
+    <!-- 6.2 Step 1 -->
+    <section data-section="speaker-6">
+      <div class="step-slide">
+        <div class="step-num">1.</div>
+        <div class="step-body">
+          <div class="step-title">Audit before you touch the schedule.</div>
+          <div class="step-detail">
+            Pull a week of calendar data. Ask honestly: how many of these meetings should have been an email. How many emails should have been a Slack message. How many Slack messages should have been nothing.
+            <br><br>
+            The four-day week doesn't start with a day off. It starts with a hard look at where the hours actually go.
+          </div>
+        </div>
+      </div>
+      <aside class="notes">
+        One. Audit your meeting-to-focus ratio before you touch the schedule. Pull a week of calendar data. Ask honestly: how many of these meetings should have been an email. How many emails should have been a Slack message. How many Slack messages should have been nothing. The four-day week doesn't start with a day off. It starts with a hard look at where the hours actually go.
+
+        [The cascade — email / Slack / nothing — is your one comic beat. Build the rhythm. Don't push for the laugh.]
+      </aside>
+    </section>
+
+    <!-- 6.3 Step 2 -->
+    <section data-section="speaker-6">
+      <div class="step-slide">
+        <div class="step-num">2.</div>
+        <div class="step-body">
+          <div class="step-title">Define success in outputs, not hours.</div>
+          <div class="step-detail">
+            If you cannot articulate what "done" looks like for each role on your team — concretely, measurably — then hours are all you have. The 100-80-100 model only works when you know what the 100 percent actually is.
+          </div>
+        </div>
+      </div>
+      <aside class="notes">
+        Two. Define success in terms of outputs, not hours. If you cannot articulate what "done" looks like for each role on your team — concretely, measurably — then hours are all you have. The 100-80-100 model only works when you know what the 100 percent actually is.
+      </aside>
+    </section>
+
+    <!-- 6.4 Step 3 -->
+    <section data-section="speaker-6">
+      <div class="step-slide">
+        <div class="step-num">3.</div>
+        <div class="step-body">
+          <div class="step-title">If you pilot, pilot for at least six months.</div>
+          <div class="step-detail">
+            Juliet Schor herself flagged this — the strong results at six months were not novelty effects. They held up at one year. Anything shorter, and you cannot tell whether you have learned something, or whether your team is just on holiday.
+          </div>
+        </div>
+      </div>
+      <aside class="notes">
+        Three. If you pilot, pilot for at least six months. Juliet Schor herself flagged this — the strong results at six months were not novelty effects. They held up at one year. Anything shorter, and you cannot tell whether you have learned something, or whether your team is just on holiday.
+      </aside>
+    </section>
+
+    <!-- 6.5 Step 4 — held during [beat] -->
+    <section data-section="speaker-6">
+      <div class="step-slide">
+        <div class="step-num">4.</div>
+        <div class="step-body">
+          <div class="step-title">Protect the gain.</div>
+          <div class="step-detail">
+            The biggest failure mode is when Friday off quietly becomes "catch up at home" day. Emails on Friday. Slack on Friday. Just-this-once meetings on Friday. Six months in, your team is working five days again, with one of them unpaid.
+            <br><br>
+            <span style="color:var(--ink); font-style:italic;">Set the norm hard. Defend it.</span>
+          </div>
+        </div>
+      </div>
+      <aside class="notes">
+        Four. Protect the gain. The biggest failure mode is when Friday off quietly becomes "catch up at home" day. Emails on Friday. Slack on Friday. Just-this-once meetings on Friday. Six months in, your team is working five days again, with one of them unpaid. Set the norm hard. Defend it.
+
+        [beat]
+      </aside>
+    </section>
+
+    <!-- 6.6 1926 callback — CINEMATIC #5, three fragments -->
+    <section data-section="speaker-6" data-cinematic="callback-1926">
+      <div class="callback-stage">
+        <div class="eyebrow fragment fade-out" data-fragment-index="0" id="callback-eyebrow">FORD MOTOR COMPANY</div>
+        <div class="hero-number" id="callback-1926">1926</div>
+        <div class="callback-line fragment current-visible" data-fragment-index="1" id="callback-he-was-right">He was right.</div>
+        <div class="callback-line fragment fade-in" data-fragment-index="2" id="callback-final" style="color:var(--accent);">The next bet is being placed right now.</div>
+      </div>
+      <aside class="notes">
+        I want to come back to where we started. In 1926, Henry Ford bet that rested workers would be more productive workers — and that they would have the time to spend the wages he was paying them.
+
+        [Beat 1 — advance: eyebrow fades out.]
+
+        He was right. The five-day week was not given to us by nature. It was made by a man testing a hypothesis.
+
+        [Beat 2 — advance: "1926" mutes, "He was right." appears.]
+
+        The next hypothesis is being tested right now. The data is in. And the data is good.
+
+        [Beat 3 — advance: "He was right." fades, "The next bet is being placed right now." appears.]
+      </aside>
+    </section>
+
+    <!-- 6.7 Thank you — DEEP -->
+    <section class="deep" data-section="speaker-6">
+      <div class="center-both" style="height:100%;">
+        <div class="thanks">Thank you.</div>
+      </div>
+      <aside class="notes">
+        The only question left is whether you are going to be one of the leaders who waited — or one of the leaders who moved first.
+
+        Thank you.
+
+        [Three seconds. No movement. Hold.]
+      </aside>
+    </section>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.5/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.5/plugin/notes/notes.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+<script>
+(function () {
+  'use strict';
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ─────────────────────────────────────────────────────────────
+     Responsive deck dimensions — desktop landscape vs phone portrait.
+     Phone portrait switches to a 9:16-ish deck so slides fill the
+     viewport instead of being letterboxed in the centre.
+     ───────────────────────────────────────────────────────────── */
+  function computeDeckSize() {
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    const isNarrow = w < 900;
+    const isPortrait = h > w;
+
+    if (isNarrow && isPortrait) {
+      return { width: 720, height: 1280, margin: 0.03 };
+    }
+    return { width: 1920, height: 1080, margin: 0.04 };
+  }
+
+  const initialDims = computeDeckSize();
+
+  /* ─────────────────────────────────────────────────────────────
+     Initialise reveal.js
+     ───────────────────────────────────────────────────────────── */
+  Reveal.initialize({
+    width: initialDims.width,
+    height: initialDims.height,
+    margin: initialDims.margin,
+    minScale: 0.2,
+    maxScale: 2.0,
+    controls: false,
+    progress: false,
+    slideNumber: false,
+    hash: true,
+    history: true,
+    keyboard: true,
+    overview: true,
+    touch: true,
+    transition: 'fade',
+    transitionSpeed: 'fast',
+    backgroundTransition: 'fade',
+    fragmentInURL: true,
+    pdfSeparateFragments: false,
+    plugins: [RevealNotes]
+  });
+
+  /* ─────────────────────────────────────────────────────────────
+     Re-configure reveal when orientation / viewport changes
+     so the deck flips between landscape and portrait gracefully.
+     Debounced to avoid thrashing during resize.
+     ───────────────────────────────────────────────────────────── */
+  let lastDims = initialDims;
+  let resizeTimer = null;
+  function handleResize() {
+    if (resizeTimer) clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () {
+      const next = computeDeckSize();
+      if (next.width !== lastDims.width || next.height !== lastDims.height) {
+        Reveal.configure({ width: next.width, height: next.height, margin: next.margin });
+        Reveal.layout();
+        lastDims = next;
+      } else {
+        Reveal.layout();
+      }
+    }, 120);
+  }
+  window.addEventListener('resize', handleResize);
+  window.addEventListener('orientationchange', handleResize);
+
+  /* ─────────────────────────────────────────────────────────────
+     Slide-meta indicator (top-right tracker)
+     ───────────────────────────────────────────────────────────── */
+  function updateSlideMeta() {
+    const meta = document.getElementById('slide-meta');
+    if (!meta) return;
+    const indices = Reveal.getIndices();
+    const total = Reveal.getTotalSlides();
+    const current = indices.h + 1;
+    const slide = Reveal.getCurrentSlide();
+    const section = slide && slide.dataset.section ? slide.dataset.section.replace('speaker-', 'S') : '';
+    meta.textContent = section + ' · ' + String(current).padStart(2, '0') + ' / ' + String(total).padStart(2, '0');
+  }
+
+  /* ─────────────────────────────────────────────────────────────
+     Body class for deep slides — lets the slide-meta colour flip
+     ───────────────────────────────────────────────────────────── */
+  function updateDeepBodyClass() {
+    const slide = Reveal.getCurrentSlide();
+    if (!slide) return;
+    if (slide.classList.contains('deep')) {
+      document.body.classList.add('deep-active');
+      document.documentElement.style.background = 'var(--bg-deep)';
+    } else {
+      document.body.classList.remove('deep-active');
+      document.documentElement.style.background = 'var(--bg-warm)';
+    }
+  }
+
+  /* ─────────────────────────────────────────────────────────────
+     CINEMATIC #1 — "1926" reveal
+     Eyebrow fades in, then "1926" rises with 1.4s ease + 24px translate.
+     ───────────────────────────────────────────────────────────── */
+  function animate1926Reveal(slide) {
+    const eyebrow = slide.querySelector('.eyebrow');
+    const number = slide.querySelector('.hero-number');
+    if (!eyebrow || !number) return;
+
+    if (prefersReducedMotion) {
+      gsap.set([eyebrow, number], { opacity: 1, y: 0 });
+      return;
+    }
+
+    gsap.set(eyebrow, { opacity: 0, y: 0 });
+    gsap.set(number, { opacity: 0, y: 24 });
+
+    const tl = gsap.timeline();
+    tl.to(eyebrow, { opacity: 1, duration: 0.6, ease: 'power2.out', delay: 0.3 });
+    tl.to(number, { opacity: 1, y: 0, duration: 1.4, ease: 'power3.out' }, '+=0.4');
+  }
+
+  /* ─────────────────────────────────────────────────────────────
+     CINEMATIC #2 — $438B counter
+     Counts $0 → $438,000,000,000 over 1.8s with cubic-bezier(0.16,1,0.3,1).
+     GSAP's 'expo.out' is the closest pre-baked equivalent.
+     ───────────────────────────────────────────────────────────── */
+  const NUMBER_FORMATTER = new Intl.NumberFormat('en-US');
+
+  function animate438BCounter(slide) {
+    const counter = slide.querySelector('#counter-438b');
+    const caption = slide.querySelector('.counter-caption');
+    const source = slide.querySelector('.counter-source');
+    if (!counter) return;
+
+    const target = 438000000000;
+
+    if (prefersReducedMotion) {
+      counter.textContent = '$' + NUMBER_FORMATTER.format(target);
+      gsap.set([caption, source], { opacity: 1 });
+      return;
+    }
+
+    counter.textContent = '$0';
+    gsap.set([caption, source], { opacity: 0 });
+
+    const obj = { value: 0 };
+    gsap.to(obj, {
+      value: target,
+      duration: 1.8,
+      ease: 'expo.out',
+      onUpdate: function () {
+        counter.textContent = '$' + NUMBER_FORMATTER.format(Math.floor(obj.value));
+      },
+      onComplete: function () {
+        counter.textContent = '$' + NUMBER_FORMATTER.format(target);
+      }
+    });
+
+    gsap.to(caption, { opacity: 1, duration: 0.6, ease: 'power2.out', delay: 1.4 });
+    gsap.to(source, { opacity: 1, duration: 0.5, ease: 'power2.out', delay: 2.0 });
+  }
+
+  /* ─────────────────────────────────────────────────────────────
+     CINEMATIC #3 — Iceland map breath
+     SVG outline draws via stroke-dasharray over 2.5s, then dot, then caption.
+     ───────────────────────────────────────────────────────────── */
+  function animateIcelandMap(slide) {
+    const path = slide.querySelector('.iceland-outline');
+    const dot = slide.querySelector('.reykjavik-dot');
+    const label = slide.querySelector('.reykjavik-label');
+    const captionWrap = slide.querySelector('.iceland-caption-wrap');
+    if (!path) return;
+
+    const length = path.getTotalLength();
+
+    if (prefersReducedMotion) {
+      gsap.set(path, { strokeDasharray: 'none', strokeDashoffset: 0 });
+      gsap.set([dot, label, captionWrap], { opacity: 1 });
+      return;
+    }
+
+    gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
+    gsap.set([dot, label], { opacity: 0, transformOrigin: '50% 50%' });
+    gsap.set(captionWrap, { opacity: 0 });
+
+    const tl = gsap.timeline();
+    tl.to(path, {
+      strokeDashoffset: 0,
+      duration: 2.5,
+      ease: 'sine.inOut',
+      delay: 0.4
+    });
+    tl.to(dot, { opacity: 1, duration: 0.4, ease: 'power2.out' }, '-=0.1');
+    tl.to(label, { opacity: 0.7, duration: 0.5, ease: 'power2.out' }, '-=0.2');
+    tl.to(captionWrap, { opacity: 1, duration: 0.7, ease: 'power2.out' }, '+=0.3');
+  }
+
+  /* ─────────────────────────────────────────────────────────────
+     CINEMATIC #4 — Atom Bank arrow
+     Line scales left-to-right over 0.8s, then tip fades in.
+     ───────────────────────────────────────────────────────────── */
+  function animateAtomArrow(slide) {
+    const line = slide.querySelector('.atom-arrow-line');
+    const tip = slide.querySelector('.atom-arrow-tip');
+    if (!line) return;
+
+    if (prefersReducedMotion) {
+      gsap.set(line, { scaleX: 1 });
+      gsap.set(tip, { opacity: 1 });
+      return;
+    }
+
+    gsap.set(line, { scaleX: 0, transformOrigin: 'left center' });
+    gsap.set(tip, { opacity: 0 });
+
+    const tl = gsap.timeline({ delay: 0.4 });
+    tl.to(line, { scaleX: 1, duration: 0.8, ease: 'power2.inOut' });
+    tl.to(tip, { opacity: 1, duration: 0.25, ease: 'power2.out' }, '-=0.1');
+  }
+
+  /* ─────────────────────────────────────────────────────────────
+     CINEMATIC #5 — 1926 callback
+     Three fragment beats, controlled by reveal's fragment system.
+     CSS handles fade-out / fade-in. We additionally mute the "1926"
+     hero on beat 2 (when "He was right." appears).
+     ───────────────────────────────────────────────────────────── */
+  function setupCallback(slide) {
+    const number = slide.querySelector('#callback-1926');
+    const heWasRight = slide.querySelector('#callback-he-was-right');
+    const finalLine = slide.querySelector('#callback-final');
+    if (!number) return;
+
+    // Initial state on slide enter — full ink, line hidden
+    gsap.set(number, { color: '#1A1A1A', opacity: 1 });
+    if (finalLine) gsap.set(finalLine, { opacity: 0 });
+  }
+
+  function onCallbackFragment(slide, fragment) {
+    const number = slide.querySelector('#callback-1926');
+    const heWasRight = slide.querySelector('#callback-he-was-right');
+    const finalLine = slide.querySelector('#callback-final');
+    const idx = parseInt(fragment.getAttribute('data-fragment-index'), 10);
+
+    if (idx === 1) {
+      // Beat 2: 1926 fades to muted gray; "He was right." appears (handled by reveal)
+      if (number) {
+        if (prefersReducedMotion) {
+          number.style.color = 'var(--muted)';
+        } else {
+          gsap.to(number, { color: '#6B6B6B', duration: 0.8, ease: 'power2.out' });
+        }
+      }
+    } else if (idx === 2) {
+      // Beat 3: "He was right." fades (current-visible flips), final line appears
+      // current-visible class will hide heWasRight automatically
+      if (finalLine) {
+        if (prefersReducedMotion) {
+          gsap.set(finalLine, { opacity: 1 });
+        } else {
+          gsap.to(finalLine, { opacity: 1, duration: 0.6, ease: 'power2.out' });
+        }
+      }
+    }
+  }
+
+  function onCallbackFragmentHidden(slide, fragment) {
+    const number = slide.querySelector('#callback-1926');
+    const finalLine = slide.querySelector('#callback-final');
+    const idx = parseInt(fragment.getAttribute('data-fragment-index'), 10);
+
+    if (idx === 1) {
+      // Reverse: restore 1926 to ink
+      if (number) gsap.to(number, { color: '#1A1A1A', duration: 0.4 });
+    } else if (idx === 2) {
+      // Reverse: hide final line
+      if (finalLine) gsap.to(finalLine, { opacity: 0, duration: 0.3 });
+    }
+  }
+
+  /* ─────────────────────────────────────────────────────────────
+     Dispatcher — listens for slide-changed and triggers cinematic
+     ───────────────────────────────────────────────────────────── */
+  function handleSlideChange() {
+    updateSlideMeta();
+    updateDeepBodyClass();
+
+    const slide = Reveal.getCurrentSlide();
+    if (!slide) return;
+    const cinematic = slide.dataset.cinematic;
+    if (!cinematic) return;
+
+    switch (cinematic) {
+      case '1926-reveal':
+        animate1926Reveal(slide);
+        break;
+      case '438b-counter':
+        animate438BCounter(slide);
+        break;
+      case 'iceland-map':
+        animateIcelandMap(slide);
+        break;
+      case 'atom-arrow':
+        animateAtomArrow(slide);
+        break;
+      case 'callback-1926':
+        setupCallback(slide);
+        break;
+    }
+  }
+
+  Reveal.on('ready', handleSlideChange);
+  Reveal.on('slidechanged', handleSlideChange);
+
+  Reveal.on('fragmentshown', function (event) {
+    const slide = Reveal.getCurrentSlide();
+    if (!slide) return;
+    if (slide.dataset.cinematic === 'callback-1926') {
+      onCallbackFragment(slide, event.fragment);
+    }
+  });
+
+  Reveal.on('fragmenthidden', function (event) {
+    const slide = Reveal.getCurrentSlide();
+    if (!slide) return;
+    if (slide.dataset.cinematic === 'callback-1926') {
+      onCallbackFragmentHidden(slide, event.fragment);
+    }
+  });
+
+})();
+</script>
+
+</body>
+</html>
